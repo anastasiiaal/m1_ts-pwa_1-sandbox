@@ -27,6 +27,9 @@ function App() {
         <li className="nav-item">
           <Link to="/weather" className="nav-link">Weather</Link>
         </li>
+        <li className="nav-item">
+          <Link to="/typer" className="nav-link">Typer</Link>
+        </li>
       </ul>
       <section>
         <Outlet />
