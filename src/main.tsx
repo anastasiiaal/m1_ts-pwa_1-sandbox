@@ -11,6 +11,7 @@ import Agenda from './screens/Agenda.tsx';
 import Counter from './screens/Counter.tsx';
 import ButtonsTest from './screens/ButtonsTest.tsx';
 import ToDo from './screens/ToDo.tsx';
+import Weather from './screens/Weather.tsx';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -21,6 +22,7 @@ createRoot(document.getElementById('root')!).render(
           <Route path="/counter" element={<Counter />}/>
           <Route path="/buttons" element={<ButtonsTest />}/>
           <Route path="/todo" element={<ToDo />}/>
+          <Route path="/weather" element={<Weather />}/>
         </Route>
       </Routes>
     </BrowserRouter>
