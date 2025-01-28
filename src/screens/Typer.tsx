@@ -23,14 +23,14 @@ export default function Typer() {
         return () => clearInterval(interval);
     }, [isStarted, isCompleted]);
 
-    const handleStart = () => {
+    function handleStart () {
         setIsStarted(true);
         setTimer(0);
         setIsCompleted(false);
         setTextAreaValue("");
     };
 
-    const handleTextChange = (value: string) => {
+    function handleTextChange (value: string) {
         setTextAreaValue(value);
         if (value === targetText) {
             setIsCompleted(true);
@@ -50,12 +50,10 @@ export default function Typer() {
         }
     };
 
-    const getRanking = () => {
+    function getRanking () {
         const records = JSON.parse(localStorage.getItem("typingRecords") || "[]");
         return records.sort((a: Record, b: Record) => a.time - b.time);
     };
-
-
 
     return (
         <div className="container mt-5">
