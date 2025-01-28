@@ -7,14 +7,14 @@ type Task = {
 
 export default function ToDo() {
     const [tasks, setTasks] = useState<Task[]>([]);
-    const [newTask, setNewTask] = useState<string>("");
+    const [inputValue, setInputValue] = useState<string>("");
 
     function addTask(event: React.FormEvent) :void {
         event?.preventDefault();
-        if (newTask.trim() !== "") {
-            setTasks([...tasks, { text: newTask, done: false }]);
+        if (inputValue.trim() !== "") {
+            setTasks([{ text: inputValue, done: false }, ...tasks]);
         }
-        setNewTask("")
+        setInputValue("")
     }
 
     function toggleTask(index : number) {
@@ -35,9 +35,9 @@ export default function ToDo() {
                 <div className="input-group mb-3">
                     <input 
                         type="text" 
-                        value={newTask} 
+                        value={inputValue} 
                         className="form-control"
-                        onChange={(e) => setNewTask(e.target.value)} 
+                        onChange={(e) => setInputValue(e.target.value)} 
                         placeholder="Enter a task"
                     />
                     <button type="submit" className="btn btn-primary">+</button>
