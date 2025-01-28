@@ -13,6 +13,9 @@ function App() {
           <Link to="/" className="nav-link">Home</Link>
         </li>
         <li className="nav-item">
+          <Link to="/buttons" className="nav-link">Buttons</Link>
+        </li>
+        <li className="nav-item">
           <a href="#" className="nav-link" onClick={() => navigate("/agenda")}>Agenda</a>
         </li>
         <li className="nav-item">

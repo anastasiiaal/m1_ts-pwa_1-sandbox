@@ -13,6 +13,7 @@ export default function Agenda () {
     
     return (
         <>
+            <h3>Ceci est une agenda</h3>
             <ul>
                 {WEEKDAYS.map((day, idx)=> (
                     <li 
