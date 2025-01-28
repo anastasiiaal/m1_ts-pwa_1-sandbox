@@ -1,6 +1,9 @@
 import { useState } from "react"
 
-type Task = {
+let id = 1;
+
+interface Task {
+    id: number;
     text: string;
     done: boolean;
 };
@@ -12,7 +15,8 @@ export default function ToDo() {
     function addTask(event: React.FormEvent) :void {
         event?.preventDefault();
         if (inputValue.trim() !== "") {
-            setTasks([{ text: inputValue, done: false }, ...tasks]);
+            setTasks([{ id: id, text: inputValue, done: false }, ...tasks]);
+            id++
         }
         setInputValue("")
     }
@@ -47,10 +51,10 @@ export default function ToDo() {
             <ul>
                 {tasks.map((task, index) => (
                     <li 
-                        key={index} 
+                        key={task.id} 
                         className="form-check list-group-item d-flex align-items-center justify-content-between"
                     >
-                        <div className="">
+                        <div>
                             <input
                                 className="form-check-input me-2"
                                 type="checkbox"
@@ -61,7 +65,7 @@ export default function ToDo() {
                                 {task.text}
                             </label>
                         </div>
-                        <button onClick={() => deleteTask(index)} className={`btn ${!task.done ? "btn-secondary" : "btn-danger"}`} disabled={!task.done}>✕</button>
+                        <button onClick={() => deleteTask(index)} className={`btn ${!task.done ? "btn-secondary" : "btn-danger"}`} disabled={!task.done}> ✕ </button>
                     </li>
                 ))}
             </ul>
